@@ -424,7 +424,8 @@ def check_tmpdir_sticky_bit
   world_writable = HOMEBREW_TEMP.stat.mode & 0777 == 0777
   if world_writable && !HOMEBREW_TEMP.sticky? then <<-EOS.undent
     #{HOMEBREW_TEMP} is world-writable but does not have the sticky bit set.
-    Please run "Repair Disk Permissions" in Disk Utility.
+    Please run "Repair Disk Permissions" in Disk Utility. 
+    Under linux, you can issue the following command: chmod +t #{HOMEBREW_TEMP}
   EOS
   end
 end
